@@ -1,6 +1,6 @@
 <template>
     <layout>
-        <div class="flex bg-gray-200 py-40">
+        <div class="flex py-40">
             <div class="sm:max-w-xl md:max-w-2xl w-full m-auto">
                 <form @submit.prevent="submit"
                       class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">

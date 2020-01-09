@@ -136,7 +136,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("layout", [
-    _c("div", { staticClass: "flex bg-gray-200 py-40" }, [
+    _c("div", { staticClass: "flex py-40" }, [
       _c("div", { staticClass: "sm:max-w-xl md:max-w-2xl w-full m-auto" }, [
         _c(
           "form",

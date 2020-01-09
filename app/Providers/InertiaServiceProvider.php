@@ -35,6 +35,9 @@ class InertiaServiceProvider extends ServiceProvider
             'message' => function () {
                 return session()->get('message') ? session()->get('message') : (object) [];
             },
+            'status' => function () {
+                return session()->get('status') ? session()->get('status') : (object) [];
+            },
         ]);
     }
 }

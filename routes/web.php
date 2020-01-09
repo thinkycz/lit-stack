@@ -1,7 +1,6 @@
 <?php
 
-Route::get('dashboard', \App\Http\Controllers\DashboardController::class);
+use App\Http\Controllers\DashboardController;
 
-Route::get('logout', function () {
-    auth()->logout();
-});
+Route::get('dashboard', DashboardController::class);
+

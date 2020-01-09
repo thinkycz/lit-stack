@@ -22,8 +22,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -54,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware(['web', 'auth'])
+        Route::middleware(['web', 'auth', 'verified'])
             ->group(base_path('routes/web.php'));
     }
 
@@ -83,7 +81,13 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace('App\\Http\\Controllers')
             ->group(function () {
-                Auth::routes();
+                Auth::routes(['verify' => true]);
+
+                Route::get('logout', function () {
+                    auth()->logout();
+
+                    return redirect(static::HOME);
+                });
             });
     }
 }

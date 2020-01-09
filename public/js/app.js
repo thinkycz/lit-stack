@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"ba2875af12ba6a9129f3","1":"8520929a4b59321dc2c7","2":"8e1f9c9c81e234b069d9","3":"9589a9ecde28ef5c83b4","4":"25b7db8f9b7e76a66288","5":"66556aaec1bd03bc7a0a","6":"7bf4af257cbafb9dbd97","7":"27cbc68591def2e86e00"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"ba2875af12ba6a9129f3","1":"9de7699c4d923ae28615","2":"8e1f9c9c81e234b069d9","3":"9589a9ecde28ef5c83b4","4":"25b7db8f9b7e76a66288","5":"12f9398c4f79e58b00c4","6":"54109f0a326257389c97","7":"304073d6255056c71d27"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -20137,47 +20137,72 @@ var render = function() {
                   "text-sm text-grey-dark list-reset flex items-center"
               },
               [
-                _c(
-                  "li",
-                  { staticClass: "mr-8" },
-                  [
-                    _c(
-                      "inertia-link",
-                      {
-                        staticClass:
-                          "font-semibold text-gray-900 hover:text-orange-500",
-                        attrs: { href: _vm.$route("login") }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Log in\n                        "
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  [
-                    _c(
-                      "inertia-link",
-                      {
-                        staticClass:
-                          "py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600",
-                        attrs: { href: _vm.$route("register") }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Sign up\n                        "
-                        )
-                      ]
-                    )
-                  ],
-                  1
-                )
-              ]
+                _vm.$page.user
+                  ? [
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass:
+                                "py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600",
+                              attrs: { href: _vm.$route("logout") }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Log out\n                            "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+                  : [
+                      _c(
+                        "li",
+                        { staticClass: "mr-8" },
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass:
+                                "font-semibold text-gray-900 hover:text-orange-500",
+                              attrs: { href: _vm.$route("login") }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Log in\n                            "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "inertia-link",
+                            {
+                              staticClass:
+                                "py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600",
+                              attrs: { href: _vm.$route("register") }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                Sign up\n                            "
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ]
+              ],
+              2
             )
           ],
           1

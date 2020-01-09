@@ -2,8 +2,10 @@
     <layout>
         <div class="flex py-40">
             <div class="sm:max-w-xl md:max-w-2xl w-full m-auto">
-                <div v-if="Object.keys(status).length !== 0" class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                    {{ status }}
+                <div v-if="session.status"
+                     class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4"
+                     role="alert">
+                    {{ session.status }}
                 </div>
 
                 <form @submit.prevent="submit"
@@ -61,7 +63,7 @@
 
 <script>
     export default {
-        props: ['errors', 'status'],
+        props: ['errors', 'session'],
 
         data() {
             return {

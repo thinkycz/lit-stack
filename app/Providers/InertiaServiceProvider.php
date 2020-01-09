@@ -29,15 +29,15 @@ class InertiaServiceProvider extends ServiceProvider
         });
 
         Inertia::share([
-            'errors' => function () {
-                return session()->get('errors') ? session()->get('errors')->getBag('default')->getMessages() : (object) [];
+            'errors'  => function () {
+                return session()->get('errors') ? session()->get('errors')->getBag('default')->getMessages() : (object)[];
             },
-            'message' => function () {
-                return session()->get('message') ? session()->get('message') : (object) [];
+            'session' => function () {
+                return session()->all();
             },
-            'status' => function () {
-                return session()->get('status') ? session()->get('status') : (object) [];
-            },
+            'user'    => function () {
+                return auth()->user();
+            }
         ]);
     }
 }

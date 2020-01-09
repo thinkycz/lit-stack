@@ -11,18 +11,28 @@
                     </inertia-link>
 
                     <ul class="text-sm text-grey-dark list-reset flex items-center">
-                        <li class="mr-8">
-                            <inertia-link :href="$route('login')"
-                               class="font-semibold text-gray-900 hover:text-orange-500">
-                                Log in
-                            </inertia-link>
-                        </li>
-                        <li>
-                            <inertia-link :href="$route('register')"
-                               class="py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600">
-                                Sign up
-                            </inertia-link>
-                        </li>
+                        <template v-if="$page.user">
+                            <li>
+                                <inertia-link :href="$route('logout')"
+                                              class="py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600">
+                                    Log out
+                                </inertia-link>
+                            </li>
+                        </template>
+                        <template v-else>
+                            <li class="mr-8">
+                                <inertia-link :href="$route('login')"
+                                              class="font-semibold text-gray-900 hover:text-orange-500">
+                                    Log in
+                                </inertia-link>
+                            </li>
+                            <li>
+                                <inertia-link :href="$route('register')"
+                                              class="py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600">
+                                    Sign up
+                                </inertia-link>
+                            </li>
+                        </template>
                     </ul>
                 </div>
             </div>

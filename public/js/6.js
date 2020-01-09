@@ -70,8 +70,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['errors', 'status'],
+  props: ['errors', 'session'],
   data: function data() {
     return {
       form: {
@@ -106,7 +108,7 @@ var render = function() {
   return _c("layout", [
     _c("div", { staticClass: "flex py-40" }, [
       _c("div", { staticClass: "sm:max-w-xl md:max-w-2xl w-full m-auto" }, [
-        Object.keys(_vm.status).length !== 0
+        _vm.session.status
           ? _c(
               "div",
               {
@@ -116,7 +118,9 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                " + _vm._s(_vm.status) + "\n            "
+                  "\n                " +
+                    _vm._s(_vm.session.status) +
+                    "\n            "
                 )
               ]
             )

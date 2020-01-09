@@ -1,58 +1,87 @@
 <template>
-    <div class="container mx-auto">
-        <div class="flex flex-wrap justify-center">
-            <div class="w-full max-w-sm">
-                <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
+    <div class="flex bg-gray-200 py-40">
+        <div class="sm:max-w-xl md:max-w-2xl w-full m-auto">
+            <form @submit.prevent="submit"
+                  class="flex items-stretch bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-indigo-500 sm:border-0">
+                <div
+                    class="flex hidden overflow-hidden relative sm:block w-5/12 md:w-6/12 bg-gray-600 text-gray-300 py-4 bg-cover bg-center"
+                    style="background-image: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+                    <div class="flex-1 absolute bottom-0 text-white p-10">
+                        <h3 class="text-4xl font-bold inline-block">Login</h3>
+                        <p class="text-gray-500 whitespace-no-wrap">
+                            Welcome back!
+                        </p>
+                    </div>
+                    <svg class="absolute animate h-full w-4/12 sm:w-2/12 right-0 inset-y-0 fill-current text-white"
+                         viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <polygon points="0,0 100,100 100,0"></polygon>
+                    </svg>
+                </div>
+                <div class="flex-1 p-6 sm:p-10 sm:py-12">
+                    <h3 class="text-xl text-gray-700 font-bold mb-6">
+                        Login <span class="text-gray-400 font-light">to your account</span></h3>
 
-                    <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
-                        Login
+                    <div class="mb-4">
+                        <input type="email"
+                               class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white"
+                               :class="{'border-red-500': errors.email}"
+                               placeholder="Email"
+                               v-model="form.email"
+                               required
+                               autofocus>
+                        <p v-if="errors.email" class="text-red-500 text-xs italic mt-4">
+                            {{ errors.email[0] }}
+                        </p>
                     </div>
 
-                    <form class="w-full p-6" method="POST" :action="$route('login')">
-                        <div class="flex flex-wrap mb-6">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
-                                E-Mail Address:
-                            </label>
+                    <div class="mb-4">
+                        <input type="password"
+                               class="px-3 w-full py-2 bg-gray-200 border border-gray-200 rounded focus:border-gray-400 focus:outline-none focus:bg-white"
+                               placeholder="Password"
+                               v-model="form.password"
+                               required>
+                    </div>
 
-                            <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" value="" required autocomplete="email" autofocus>
+                    <div class="flex flex-wrap items-center">
+                        <div class="w-full sm:flex-1">
+                            <input type="submit" value="Login"
+                                   class="w-full sm:w-auto bg-indigo-500 text-indigo-100 px-6 py-2 rounded hover:bg-indigo-600 focus:outline-none cursor-pointer">
                         </div>
-
-                        <div class="flex flex-wrap mb-6">
-                            <label for="password" class="block text-gray-700 text-sm font-bold mb-2">
-                                Password:
-                            </label>
-
-                            <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="password" required>
+                        <div class="text-sm text-gray-500 hover:text-gray-700 pt-4 sm:p-0">
+                            <inertia-link :href="$route('password.request')">Forgot password?</inertia-link>
                         </div>
+                    </div>
 
-                        <div class="flex mb-6">
-                            <input type="checkbox" name="remember" id="remember">
-
-                            <label class="text-sm text-gray-700 ml-3" for="remember">
-                                Remember Me
-                            </label>
-                        </div>
-
-                        <div class="flex flex-wrap items-center">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                Login
-                            </button>
-
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" :href="$route('password.request')">
-                                    Forgot Your Password?
-                                </a>
-
-                                <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
-                                    Don't have an account?
-                                    <a class="text-blue-500 hover:text-blue-700 no-underline" :href="$route('register')">
-                                        Register
-                                    </a>
-                                </p>
-                        </div>
-                    </form>
+                    <p class="w-full text-xs text-left text-gray-700 mt-8">
+                        Don't have an account?
+                        <inertia-link :href="$route('register')" class="text-blue-500 hover:text-blue-700 no-underline">
+                            Register
+                        </inertia-link>
+                    </p>
 
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        props: ['errors'],
+
+        data() {
+            return {
+                form: {
+                    email: '',
+                    password: ''
+                }
+            }
+        },
+
+        methods: {
+            submit() {
+                this.$inertia.post(this.$route('login'), this.form);
+            }
+        }
+    }
+</script>

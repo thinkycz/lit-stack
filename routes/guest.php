@@ -1,3 +1,5 @@
 <?php
 
-Route::get('/', \App\Http\Controllers\LandingController::class);
+use App\Http\Controllers\LandingController;
+
+Route::get('/', LandingController::class)->name('landing');

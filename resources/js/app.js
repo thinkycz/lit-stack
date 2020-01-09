@@ -6,6 +6,8 @@ import Vue from 'vue'
 Vue.use(InertiaApp)
 Vue.prototype.$route = (...args) => route(...args).url()
 
+Vue.component('layout', require('./inertia/Shared/Layout.vue').default)
+
 const app = document.getElementById('app')
 
 new Vue({

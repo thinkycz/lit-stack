@@ -36,4 +36,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'gravatar'
+    ];
+
+    public function getGravatarAttribute()
+    {
+        $hash = md5(strtolower(trim(auth()->user()->email)));
+
+        return "https://www.gravatar.com/avatar/{{ $hash }}?s=80&d=mp";
+    }
 }

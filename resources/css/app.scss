@@ -5,3 +5,7 @@
 @tailwind utilities;
 
 @import 'nprogress';
+
+#menu-toggle:checked + #menu {
+    display: block;
+}

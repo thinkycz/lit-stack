@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-200">
+    <div class="bg-gray-200 min-h-screen">
         <div class="h-2 bg-indigo-600 w-full absolute z-20"></div>
 
         <header class="absolute pin-t pin-l w-full py-8">
@@ -12,10 +12,16 @@
 
                     <ul class="text-sm text-grey-dark list-reset flex items-center">
                         <template v-if="$page.user">
-                            <li>
+                            <li class="mr-8">
                                 <inertia-link :href="$route('logout')"
-                                              class="py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600">
+                                              class="font-semibold text-gray-900 hover:text-orange-500">
                                     Log out
+                                </inertia-link>
+                            </li>
+                            <li>
+                                <inertia-link :href="$route('app.dashboard')"
+                                              class="py-2 px-6 rounded-full font-bold hidden sm:inline-block inline-block float-right text-white bg-indigo-600">
+                                    Go to Dashboard
                                 </inertia-link>
                             </li>
                         </template>

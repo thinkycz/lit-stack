@@ -5,12 +5,14 @@ import Vue from 'vue'
 
 Vue.use(InertiaApp)
 Vue.prototype.$route = (...args) => route(...args).url()
+Vue.prototype.$isRoute = (...args) => route().current(...args)
 
 Vue.component('layout', require('./inertia/Shared/Layout.vue').default)
+Vue.component('app-layout', require('./inertia/Shared/AppLayout.vue').default)
 
 const app = document.getElementById('app')
 
-new Vue({
+const inertia = new Vue({
     render: h => h(InertiaApp, {
         props: {
             initialPage: JSON.parse(app.dataset.page),

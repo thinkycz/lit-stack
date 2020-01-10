@@ -29,15 +29,15 @@
                         <ul class="lg:flex items-center justify-between text-sm font-medium text-gray-700 pt-4 lg:pt-0">
                             <li>
                                 <inertia-link class="lg:p-4 py-3 px-0 block text-gray-600 hover:text-gray-900 lg:mb-0 mb-2"
-                                              :class="{'text-indigo-500 hover:text-indigo-500 font-bold': $isRoute('app.dashboard')}"
+                                              :class="{'text-indigo-500 hover:text-indigo-500 font-bold': $isRoute('app.*')}"
                                               :href="$route('app.dashboard')">
                                     My Application
                                 </inertia-link>
                             </li>
                             <li>
                                 <inertia-link class="lg:p-4 py-3 px-0 block text-gray-600 hover:text-gray-900 lg:mb-0 mb-2"
-                                              :class="{'text-indigo-500 hover:text-indigo-500 font-bold': $isRoute('contact')}"
-                                              :href="$route('contact')">
+                                              :class="{'text-indigo-500 hover:text-indigo-500 font-bold': $isRoute('contact.index')}"
+                                              :href="$route('contact.index')">
                                     Contact Us
                                 </inertia-link>
                             </li>

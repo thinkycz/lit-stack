@@ -37,6 +37,9 @@ class InertiaServiceProvider extends ServiceProvider
             },
             'user'    => function () {
                 return auth()->user();
+            },
+            'company' => function () {
+                return config('company');
             }
         ]);
     }

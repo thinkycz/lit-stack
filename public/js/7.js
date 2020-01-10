@@ -339,7 +339,7 @@ var render = function() {
               _vm._v(" "),
               _c("input", {
                 staticClass:
-                  "bg-indigo-500 text-white text-sm font-medium px-6 py-3 rounded-full float-right uppercase cursor-pointer",
+                  "bg-indigo-500 hover:bg-indigo-600 focus:outline-none text-white text-sm font-medium px-6 py-3 rounded-full float-right uppercase cursor-pointer",
                 attrs: { type: "submit", value: "Save" }
               })
             ]

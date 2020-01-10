@@ -55,7 +55,7 @@
                         Please click Save to change your password
                     </p>
                     <input type="submit"
-                           class="bg-indigo-500 text-white text-sm font-medium px-6 py-3 rounded-full float-right uppercase cursor-pointer"
+                           class="bg-indigo-500 hover:bg-indigo-600 focus:outline-none text-white text-sm font-medium px-6 py-3 rounded-full float-right uppercase cursor-pointer"
                            value="Save">
                 </div>
             </form>

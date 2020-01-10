@@ -50,7 +50,7 @@
                             {{ $page.user.name }}
                         </p>
                         <img
-                            class="rounded-full w-10 h-10 border-2 border-transparent group-hover:border-orange-400 ignore-body-click"
+                            class="rounded-full w-10 h-10 border-2 border-transparent group-hover:border-indigo-400 ignore-body-click"
                             :src="$page.user.gravatar"
                             alt="avatar">
                     </button>
@@ -85,6 +85,13 @@
             return {
                 menuOpen: false
             }
-        }
+        },
+
+        updated() {
+            if (this.$page.session.message) {
+                this.$toast(this.$page.session.message, {type: this.$page.session.message_type || 'default'});
+                this.$page.session.message = null;
+            }
+        },
     }
 </script>

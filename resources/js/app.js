@@ -3,7 +3,12 @@ require('./bootstrap');
 import { InertiaApp } from '@inertiajs/inertia-vue'
 import Vue from 'vue'
 
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
+Vue.use(Toast, {position: 'bottom-right'});
 Vue.use(InertiaApp)
+
 Vue.prototype.$route = (...args) => route(...args).url()
 Vue.prototype.$isRoute = (...args) => route().current(...args)
 

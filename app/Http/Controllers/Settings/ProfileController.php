@@ -24,6 +24,8 @@ class ProfileController extends Controller
 
         auth()->user()->update($data);
 
-        return redirect()->route('settings.profile.index');
+        return redirect()->route('settings.profile.index')
+            ->with('message', 'Your profile information has been saved')
+            ->with('message_type', 'success');
     }
 }

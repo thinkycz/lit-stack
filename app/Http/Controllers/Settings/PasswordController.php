@@ -22,7 +22,9 @@ class PasswordController extends Controller
             'password' => bcrypt($data['password'])
         ]);
 
-        return redirect()->route('profile.password.index');
+        return redirect()->route('settings.password.index')
+            ->with('message', 'Your password has been changed')
+            ->with('message_type', 'success');
     }
 
 }
